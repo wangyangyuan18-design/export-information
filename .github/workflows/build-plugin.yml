@@ -1,0 +1,20 @@
+name: Build QGIS Plugin ZIP
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build plugin ZIP
+        run: |
+          mkdir -p dist
+          zip -r dist/export_information.zip export_information -x '*/__pycache__/*' '*.pyc'
+      - uses: actions/upload-artifact@v4
+        with:
+          name: export-information-qgis-plugin
+          path: dist/export_information.zip
