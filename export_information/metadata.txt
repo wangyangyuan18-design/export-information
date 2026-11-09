@@ -1,0 +1,12 @@
+[general]
+name=Export Information
+qgisMinimumVersion=3.22
+description=Export HUB BOX, SUB BOX, Distribution Cable and matched pole information to a formatted Excel workbook.
+version=0.1.0
+author=wangyangyuan18-design
+email=
+about=Exports ODN construction information. Parses SUB BOX names such as KIM-HB09L4S4, matches BOX points to New Pole and Exsiting Pole within 3 metres, and writes an XLSX workbook plus a QA report.
+category=Vector
+icon=icon.svg
+experimental=False
+deprecated=False
