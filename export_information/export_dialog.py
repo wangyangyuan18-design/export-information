@@ -167,6 +167,10 @@ class ExportInformationDialog(QDialog):
                     elif hasattr(child, 'children'):
                         collect(child)
             collect(poles_group)
+            named_poles = [lyr for lyr in pole_candidates
+                           if self._norm(lyr.name()) in ('newpole', 'exsitingpole', 'existingpole')]
+            if named_poles:
+                pole_candidates = named_poles
         if not pole_candidates:
             for lyr in layers:
                 if self._norm(lyr.name()) in ('newpole', 'exsitingpole', 'existingpole'):
