@@ -26,7 +26,9 @@ def _to_wgs84_point(layer, feature, project):
         return None
     geom = QgsGeometry(geom)
     src = layer.crs()
-    if src.isValid() and src != _WGS84:
+    if not src.isValid():
+        return None
+    if src != _WGS84:
         transform = QgsCoordinateTransform(src, _WGS84, project)
         geom.transform(transform)
     if geom.isNull() or geom.isEmpty():
@@ -50,7 +52,9 @@ def _to_wgs84_geometry(layer, feature, project):
         return None
     geom = QgsGeometry(geom)
     src = layer.crs()
-    if src.isValid() and src != _WGS84:
+    if not src.isValid():
+        return None
+    if src != _WGS84:
         transform = QgsCoordinateTransform(src, _WGS84, project)
         geom.transform(transform)
     if geom.isNull() or geom.isEmpty():
