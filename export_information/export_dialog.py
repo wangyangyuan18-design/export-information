@@ -286,7 +286,7 @@ class ExportInformationDialog(QDialog):
                    'HUB BOX 未找到：{hub_missing}\n'
                    '未匹配到 Distribution Cable：{cable_missing}\n\n'
                    'Excel：{path}\n'
-                   '第二个工作表为 QA Report。').format(**result, path=output)
+                   '第二个工作表为 QA Report。').format(**result)
             QMessageBox.information(self, 'Export complete', msg)
         except Exception as exc:
             progress.close()
